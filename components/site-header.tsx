@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, Phone, X } from 'lucide-react'
+import { openBookingFlow } from './booking-flow'
 
 const NAV = [
   { label: 'Voice Agents', href: '#voice-agents' },
@@ -56,13 +57,14 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
+          <button
+            type="button"
+            onClick={openBookingFlow}
             className="hidden h-10 items-center gap-2 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03] md:inline-flex"
           >
             <Phone className="size-4" />
             Book a Demo
-          </a>
+          </button>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -96,14 +98,17 @@ export function SiteHeader() {
                   {item.label}
                 </a>
               ))}
-              <a
-                href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
-                onClick={() => setOpen(false)}
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false)
+                  openBookingFlow()
+                }}
                 className="mt-2 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary text-sm font-medium text-primary-foreground"
               >
                 <Phone className="size-4" />
                 Book a Demo
-              </a>
+              </button>
             </div>
           </motion.nav>
         )}

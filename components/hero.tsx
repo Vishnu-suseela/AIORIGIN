@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ArrowDown, Phone } from 'lucide-react'
+import { openBookingFlow } from './booking-flow'
 
 const BAR_HEIGHTS = [14, 26, 40, 30, 48, 22, 38, 18, 44, 28, 36, 16, 42, 24, 32]
 
@@ -62,13 +63,14 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.55 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
-          <a
-            href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
+          <button
+            type="button"
+            onClick={openBookingFlow}
             className="inline-flex h-12 items-center gap-2 rounded-full bg-primary px-7 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
           >
             <Phone className="size-4" />
             Hear a Live Agent
-          </a>
+          </button>
           <a
             href="#voice-agents"
             className="inline-flex h-12 items-center gap-2 rounded-full border border-border bg-card/70 px-7 text-sm font-medium backdrop-blur transition-colors hover:bg-secondary"

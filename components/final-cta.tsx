@@ -1,6 +1,7 @@
 'use client'
 
 import { Phone } from 'lucide-react'
+import { openBookingFlow } from './booking-flow'
 import { Reveal } from './reveal'
 
 const BAR_HEIGHTS = [10, 22, 34, 26, 42, 18, 30, 14, 38, 24, 32, 12, 36, 20, 28]
@@ -32,13 +33,14 @@ export function FinalCta() {
             like yours — then decide.
           </p>
           <div className="mt-10 flex items-center justify-center">
-            <a
-              href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
+            <button
+              type="button"
+              onClick={openBookingFlow}
               className="inline-flex h-12 items-center gap-2 rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
             >
               <Phone className="size-4" />
               Book a Demo Call
-            </a>
+            </button>
           </div>
         </Reveal>
       </div>

@@ -38,7 +38,7 @@ const AGENTS = [
     title: 'Follow up before your competitor does',
     text: 'The agent calls new leads within 60 seconds of a form fill, confirms tomorrow\u2019s appointments, chases no-shows and reactivates old customers — without your team dialing a single number.',
     image: '/images/agent-outbound-pro.png',
-    imageAlt: 'A sales professional managing timely customer follow-up calls',
+    imageAlt: 'An elemental orange voice signal radiating outward in concentric rings',
     features: [
       { icon: BellRing, label: 'Instant lead follow-up in under 60 seconds' },
       { icon: Megaphone, label: 'Appointment reminders that cut no-shows' },

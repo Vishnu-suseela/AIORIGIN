@@ -57,7 +57,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#booking"
+            href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
             className="hidden h-10 items-center gap-2 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03] md:inline-flex"
           >
             <Phone className="size-4" />
@@ -97,7 +97,7 @@ export function SiteHeader() {
                 </a>
               ))}
               <a
-                href="#booking"
+                href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary text-sm font-medium text-primary-foreground"
               >

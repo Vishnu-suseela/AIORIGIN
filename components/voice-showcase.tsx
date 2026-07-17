@@ -6,19 +6,19 @@ import { Reveal } from './reveal'
 
 const DEMOS = [
   {
-    title: 'Telugu customer care',
-    context: 'Regional language · Natural assistance',
-    src: '/audio/telugu-demo.wav',
+    title: 'Telugu',
+    context: 'తెలుగు · Natural regional conversation',
+    src: '/audio/telugu.wav',
   },
   {
-    title: 'Inbound appointment call',
-    context: 'Reception · Lead qualification',
-    src: '/audio/voice-demo-one.wav',
+    title: 'Hindi',
+    context: 'हिन्दी · Clear, confident assistance',
+    src: '/audio/hindi.wav',
   },
   {
-    title: 'Outbound follow-up',
-    context: 'Lead response · Re-engagement',
-    src: '/audio/voice-demo-two.wav',
+    title: 'English',
+    context: 'English · Polished customer experience',
+    src: '/audio/english.wav',
   },
 ]
 

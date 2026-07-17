@@ -56,7 +56,7 @@ export function Websites() {
             </ul>
 
             <a
-              href="#booking"
+              href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
               className="mt-8 inline-flex h-11 items-center gap-2 rounded-full border border-primary/50 px-6 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
             >
               Ask about a website

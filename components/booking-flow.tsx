@@ -159,9 +159,9 @@ export function BookingFlow() {
   return (
     <AnimatePresence>
       {open && (
-        <motion.div className="fixed inset-0 z-[70] flex items-end justify-center bg-foreground/35 p-0 backdrop-blur-sm sm:items-center sm:p-5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(event) => event.target === event.currentTarget && resetAndClose()}>
-          <motion.div role="dialog" aria-modal="true" aria-labelledby="booking-title" className="flex max-h-[94svh] w-full max-w-4xl flex-col overflow-hidden rounded-t-3xl border border-border bg-card shadow-2xl sm:max-h-[90svh] sm:rounded-3xl" initial={{ opacity: 0, y: 32, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 24, scale: 0.98 }} transition={{ duration: 0.25 }}>
-            <div className="flex items-start justify-between border-b border-border px-5 py-4 sm:px-7">
+        <motion.div className="fixed inset-0 z-[70] flex items-end justify-center bg-foreground/50 p-0 backdrop-blur-md sm:items-center sm:p-5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(event) => event.target === event.currentTarget && resetAndClose()}>
+          <motion.div role="dialog" aria-modal="true" aria-labelledby="booking-title" className="flex max-h-[94svh] w-full max-w-4xl flex-col overflow-hidden rounded-t-3xl border border-primary/30 bg-card shadow-2xl ring-1 ring-primary/10 sm:max-h-[90svh] sm:rounded-3xl" initial={{ opacity: 0, y: 32, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 24, scale: 0.98 }} transition={{ duration: 0.25 }}>
+            <div className="flex items-start justify-between border-b border-primary/15 bg-primary/5 px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground"><Phone className="size-4" /></span>
                 <div><p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">20-minute discovery call</p><h2 id="booking-title" className="text-lg font-semibold">Let&apos;s build your perfect call flow</h2></div>

@@ -164,13 +164,43 @@
   animation: drift 9s ease-in-out infinite;
 }
 
+/* Diagrammatic motion replaces generic AI imagery in the blended-agent story. */
+.agent-orbit {
+  background-image: radial-gradient(circle at 50% 46%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 38%);
+}
+.orbit-ring {
+  position: absolute;
+  border: 1px solid color-mix(in oklab, var(--primary) 28%, transparent);
+  border-radius: 999px;
+  animation: orbit-spin 18s linear infinite;
+}
+.orbit-ring-lg { width: 72%; aspect-ratio: 1; }
+.orbit-ring-sm { width: 45%; aspect-ratio: 1; animation-direction: reverse; animation-duration: 12s; }
+.agent-core,
+.orbit-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+.agent-core { width: 5rem; aspect-ratio: 1; background: var(--primary); color: var(--primary-foreground); box-shadow: 0 20px 60px color-mix(in oklab, var(--primary) 24%, transparent); }
+.orbit-node { width: 3.25rem; aspect-ratio: 1; border: 1px solid var(--border); background: var(--background); color: var(--primary); }
+.orbit-node-a { transform: translate(-9rem, -4.5rem); animation: node-float 5s ease-in-out infinite; }
+.orbit-node-b { transform: translate(9rem, -3rem); animation: node-float 6s ease-in-out -2s infinite; }
+.orbit-node-c { transform: translate(4rem, 7rem); animation: node-float 5.5s ease-in-out -1s infinite; }
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@keyframes node-float { 50% { margin-top: -0.75rem; } }
+
 @media (prefers-reduced-motion: reduce) {
   .voice-bar,
   .animate-marquee,
   .pulse-ring,
   .animate-float-slow,
-  .animate-drift,
-  .edge-light::before {
+    .animate-drift,
+    .edge-light::before,
+    .orbit-ring,
+    .orbit-node {
     animation: none;
   }
 }

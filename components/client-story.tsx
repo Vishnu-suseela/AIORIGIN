@@ -148,7 +148,7 @@ function StoryBlock({ story, flip }: { story: Story; flip: boolean }) {
         ))}
         <Reveal delay={0.55}>
           <a
-            href="#booking"
+            href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
             className="mt-2 inline-flex h-11 items-center justify-center rounded-full border border-primary/50 px-6 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             This sounds like my business

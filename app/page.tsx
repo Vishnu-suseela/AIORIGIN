@@ -8,7 +8,6 @@ import { Process } from '@/components/process'
 import { Websites } from '@/components/websites'
 import { Faq } from '@/components/faq'
 import { FinalCta, SiteFooter } from '@/components/final-cta'
-import { BookingFlow } from '@/components/booking-flow'
 
 export default function Page() {
   return (
@@ -26,7 +25,6 @@ export default function Page() {
         <FinalCta />
       </main>
       <SiteFooter />
-      <BookingFlow />
     </>
   )
 }

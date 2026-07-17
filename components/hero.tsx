@@ -63,7 +63,7 @@ export function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <a
-            href="#booking"
+            href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
             className="inline-flex h-12 items-center gap-2 rounded-full bg-primary px-7 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
           >
             <Phone className="size-4" />

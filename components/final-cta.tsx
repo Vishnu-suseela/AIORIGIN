@@ -1,6 +1,6 @@
 'use client'
 
-import { Phone, ArrowUpRight } from 'lucide-react'
+import { Phone } from 'lucide-react'
 import { Reveal } from './reveal'
 
 const BAR_HEIGHTS = [10, 22, 34, 26, 42, 18, 30, 14, 38, 24, 32, 12, 36, 20, 28]
@@ -31,20 +31,13 @@ export function FinalCta() {
             Book a 20-minute demo. You will talk to a live agent trained on a business
             like yours — then decide.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-10 flex items-center justify-center">
             <a
-              href="#booking"
+              href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
               className="inline-flex h-12 items-center gap-2 rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
             >
               <Phone className="size-4" />
               Book a Demo Call
-            </a>
-            <a
-              href="#booking"
-              className="inline-flex h-12 items-center gap-2 rounded-full border border-border bg-card/70 px-8 text-sm font-medium transition-colors hover:bg-secondary"
-            >
-              hello@aiorigin.com
-              <ArrowUpRight className="size-4" />
             </a>
           </div>
         </Reveal>
@@ -77,7 +70,7 @@ export function SiteFooter() {
           <a href="#websites" className="text-sm text-muted-foreground hover:text-foreground">
             Websites
           </a>
-          <a href="#booking" className="text-sm text-muted-foreground hover:text-foreground">
+          <a href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call" className="text-sm text-muted-foreground hover:text-foreground">
             Contact
           </a>
         </nav>

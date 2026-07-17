@@ -23,8 +23,8 @@ const AGENTS = [
     kicker: 'Inbound',
     title: 'Answer every call that comes in',
     text: 'Your front desk, on the phone, around the clock. The agent greets callers naturally, answers questions about services and pricing, and books directly into your calendar — even at 2 a.m.',
-    image: '/images/agent-inbound-pro.png',
-    imageAlt: 'A modern reception desk ready to answer calls after business hours',
+    image: '/images/inbound-phone.png',
+    imageAlt: 'A sculptural cream phone with warm orange details and radiating sound waves',
     features: [
       { icon: CalendarCheck2, label: 'Appointment booking straight into your calendar' },
       { icon: MessagesSquare, label: 'Answers FAQs on services, pricing and hours' },
@@ -84,13 +84,27 @@ export function VoiceAgents() {
                 i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
               }`}
             >
-              <div className="overflow-hidden rounded-2xl border border-border bg-card">
-                <img
-                  src={agent.image || "/placeholder.svg"}
-                  alt={agent.imageAlt}
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
-                />
-              </div>
+              {agent.id === 'blended' ? (
+                <div className="agent-orbit relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-border bg-card" aria-label="Animated call orchestration system">
+                  <div className="orbit-ring orbit-ring-lg" aria-hidden="true" />
+                  <div className="orbit-ring orbit-ring-sm" aria-hidden="true" />
+                  <span className="agent-core"><BrainCircuit className="size-8" /></span>
+                  <span className="orbit-node orbit-node-a"><PhoneIncoming className="size-5" /></span>
+                  <span className="orbit-node orbit-node-b"><PhoneOutgoing className="size-5" /></span>
+                  <span className="orbit-node orbit-node-c"><ClipboardList className="size-5" /></span>
+                  <div className="absolute bottom-7 left-7 right-7 flex items-center justify-between border-t border-border pt-4 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    <span>Receive</span><span className="text-primary">Orchestrate</span><span>Follow up</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="group overflow-hidden rounded-2xl border border-border bg-card">
+                  <img
+                    src={agent.image}
+                    alt={agent.imageAlt}
+                    className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                </div>
+              )}
 
               <div className="flex flex-col gap-5">
                 <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary">

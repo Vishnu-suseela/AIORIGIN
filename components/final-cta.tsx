@@ -72,9 +72,9 @@ export function SiteFooter() {
           <a href="#websites" className="text-sm text-muted-foreground hover:text-foreground">
             Websites
           </a>
-          <a href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call" className="text-sm text-muted-foreground hover:text-foreground">
+          <button type="button" onClick={openBookingFlow} className="text-sm text-muted-foreground hover:text-foreground">
             Contact
-          </a>
+          </button>
         </nav>
         <p className="text-sm text-muted-foreground">
           {new Date().getFullYear()} AI Origin. Every call answered.

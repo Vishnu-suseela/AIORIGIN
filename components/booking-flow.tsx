@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { supabase } from '../lib/supabase'
 import {
   ArrowLeft,
   ArrowRight,
@@ -134,7 +135,7 @@ export function BookingFlow() {
     setStep(3)
   }
 
-  function submit(event: React.FormEvent) {
+  async function submit(event: React.FormEvent) {
     event.preventDefault()
     setError('')
     if (!name.trim() || !/^\S+@\S+\.\S+$/.test(email) || phone.replace(/\D/g, '').length < 7) {
@@ -142,14 +143,29 @@ export function BookingFlow() {
       return
     }
     const business = industries.find((item) => item.id === industry)?.label ?? industry
-    const body = [
-      'Hi AI Origin,', '', 'I would like to book a demo call.', '',
-      `Name: ${name}`, `Work email: ${email}`, `Phone: ${countryCode} ${phone}`,
-      `Business: ${company}`, `Industry: ${industry === 'other' ? customIndustry : business}`,
-      `Preferred time: ${selectedDate ? formatDate(selectedDate) : ''}, ${selectedTime} (${timezone})`,
-      `Goals / call volume: ${notes || 'Not provided'}`,
-    ].join('\n')
-    window.location.href = `mailto:niteshdevarla@gmail.com?subject=${encodeURIComponent(`Demo call — ${company}`)}&body=${encodeURIComponent(body)}`
+    
+    const { error: submitError } = await supabase
+      .from('demo_bookings')
+      .insert([
+        {
+          name,
+          email,
+          phone: `${countryCode} ${phone}`,
+          company,
+          industry: industry === 'other' ? customIndustry : business,
+          preferred_date: selectedDate ? selectedDate.toISOString() : null,
+          preferred_time: selectedTime,
+          timezone,
+          notes,
+        }
+      ])
+
+    if (submitError) {
+      console.error('Error submitting booking:', submitError)
+      setError('Failed to book demo. Please try again.')
+      return
+    }
+
     setComplete(true)
   }
 
@@ -203,7 +219,7 @@ export function BookingFlow() {
                 <div className="flex items-center justify-between border-t border-border px-5 py-4 sm:px-8"><button type="button" onClick={() => { setError(''); setStep((value) => Math.max(1, value - 1)) }} className={`inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-medium transition hover:bg-secondary ${step === 1 ? 'invisible' : ''}`}><ArrowLeft className="size-4" />Back</button>{step < 3 ? <button type="button" onClick={continueFlow} className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:scale-[1.02]">Continue<ArrowRight className="size-4" /></button> : <button type="submit" form="booking-form" className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:scale-[1.02]">Request this time<ArrowRight className="size-4" /></button>}</div>
               </>
             ) : (
-              <div className="flex flex-col items-center px-6 py-16 text-center"><span className="flex size-16 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check className="size-7" /></span><p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Ready to send</p><h3 className="mt-2 text-balance text-3xl font-semibold">Your demo request is prepared.</h3><p className="mt-3 max-w-md text-pretty leading-relaxed text-muted-foreground">Send the prefilled email that just opened. We&apos;ll reply with your calendar invite and a demo tailored to {company}.</p><button type="button" onClick={resetAndClose} className="mt-8 h-11 rounded-full border border-border px-6 text-sm font-semibold hover:bg-secondary">Back to AI Origin</button></div>
+              <div className="flex flex-col items-center px-6 py-16 text-center"><span className="flex size-16 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check className="size-7" /></span><p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Request sent</p><h3 className="mt-2 text-balance text-3xl font-semibold">Your demo request is confirmed.</h3><p className="mt-3 max-w-md text-pretty leading-relaxed text-muted-foreground">We&apos;ve received your details. We&apos;ll reach out shortly with your calendar invite and a demo tailored to {company}.</p><button type="button" onClick={resetAndClose} className="mt-8 h-11 rounded-full border border-border px-6 text-sm font-semibold hover:bg-secondary">Back to AI Origin</button></div>
             )}
           </motion.div>
         </motion.div>

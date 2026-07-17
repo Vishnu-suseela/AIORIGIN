@@ -2,6 +2,7 @@
 
 import { Globe, Gauge, Search, Smartphone, ArrowUpRight } from 'lucide-react'
 import { Reveal } from './reveal'
+import { openBookingFlow } from './booking-flow'
 
 const POINTS = [
   {
@@ -55,13 +56,14 @@ export function Websites() {
               ))}
             </ul>
 
-            <a
-              href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
+            <button
+              type="button"
+              onClick={openBookingFlow}
               className="mt-8 inline-flex h-11 items-center gap-2 rounded-full border border-primary/50 px-6 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
             >
               Ask about a website
               <ArrowUpRight className="size-4" />
-            </a>
+            </button>
           </Reveal>
 
           <Reveal delay={0.15}>

@@ -11,6 +11,7 @@ import {
   PhoneCall,
 } from 'lucide-react'
 import { Reveal } from './reveal'
+import { openBookingFlow } from './booking-flow'
 
 type Outcome = {
   icon: typeof Quote
@@ -147,12 +148,13 @@ function StoryBlock({ story, flip }: { story: Story; flip: boolean }) {
           </Reveal>
         ))}
         <Reveal delay={0.55}>
-          <a
-            href="mailto:niteshdevarla@gmail.com?subject=AI%20Origin%20Demo%20Call"
+          <button
+            type="button"
+            onClick={openBookingFlow}
             className="mt-2 inline-flex h-11 items-center justify-center rounded-full border border-primary/50 px-6 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             This sounds like my business
-          </a>
+          </button>
         </Reveal>
       </div>
     </div>
